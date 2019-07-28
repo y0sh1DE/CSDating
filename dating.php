@@ -1,2 +1,5 @@
-<?php
-echo "Du bist eingeloggt und auf der Datingseite.";
+<html>
+    <div class="container">
+
+    </div>
+</html>

@@ -16,11 +16,22 @@ if(isset($_POST['btnLogin']))
         if($pwdCheck == true)
         {
             // Correct Password
-            session_start();
-            $_SESSION['uName'] = $username;
-            $_SESSION['uLoggedIn'] = 1;
-            header("Location: ../index.php?success=login");
-            exit();
+            if($row['uLevel'] < 1)
+            {
+                // user not accepted yet
+                header("Location: ../index.php?error=notaccepted");
+                exit();
+            }
+            else
+            {
+                // Account accepted
+                session_start();
+                $_SESSION['uName'] = $username;
+                $_SESSION['uLevel'] = $row['uLevel'];
+                $_SESSION['uLoggedIn'] = 1;
+                header("Location: ../index.php?success=login");
+                exit();
+            }
         }
         else
         {

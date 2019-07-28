@@ -6,7 +6,7 @@ require_once "header.php";
             <h2>Sign Up</h2>
             <form action="includes/signup.inc.php" method="post" name="frmSignUp">
                 <div class="form-group">
-                    <input type="text" name="tbxUsername" placeholder="Username" required>
+                    <input type="text" name="tbxUsername" placeholder="Username" required minlength="4">
                 </div>
                 <div class="form-group">
                     <input type="password" name="tbxPassword" placeholder="Password" required>

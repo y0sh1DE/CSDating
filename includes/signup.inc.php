@@ -43,7 +43,7 @@
                     if(mysqli_query($conn, $sql))
                     {
                         // Insert succeeded
-                        header("Location: ../login.php?success=signup");
+                        header("Location: ../login.php?success=signup&username=". $username);
                     }
                     else
                     {

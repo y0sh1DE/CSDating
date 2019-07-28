@@ -5,7 +5,8 @@ require_once "header.php";
     <h2>Login</h2>
     <form action="includes/login.inc.php" method="post">
         <div class="form-group">
-            <input type="text" name="tbxUsername" placeholder="Username" required>
+
+            <input type="text" name="tbxUsername" placeholder="Username" required minlength="4" value="<?php if(isset($_GET['username'])) echo $_GET['username']; ?>">
         </div>
         <div class="form-group">
             <input type="password" name="tbxPassword" placeholder="Password" required>

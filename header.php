@@ -9,13 +9,20 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-        <title>CSDating V0.1</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <title>CSDating V0.2</title>
     </head>
     <body>
     <div class="container">
         <a href="index.php"><img style="float:left" height="64" width="64" src="img/Logo.png" alt="Logo"></a>
-        <h1>CSDating V0.1 by Yoshi</h1><hr>
+        <?php
+            if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
+            {
+                // Display Admin Area
+                echo "<a style=\"float:right\" href=\"usercontrol.php\" class=\"btn btn-link\">Usercontrol</a>";
+            }
+        ?>
+        <h1>CSDating V0.2 by Yoshi</h1><hr>
         <?php
 
             if(isset($_GET['error']))
@@ -43,10 +50,32 @@
                         </div>";
                         break;
                     }
+                    case "permission":
+                    {
+                        echo"<div class=\"alert alert-danger\" role=\"alert\">
+                          You dont have permission to enter this site!
+                        </div>";
+                        break;
+                    }
                     case "invalidPasswordRepeat":
                     {
                         echo"<div class=\"alert alert-danger\" role=\"alert\">
                          Passwords dont match!
+                        </div>";
+                        break;
+                    }
+                    case "notaccepted":
+                    {
+                        echo"<div class=\"alert alert-danger\" role=\"alert\">
+                         Your Account still has to be accepted by an Administrator!
+                        </div>";
+                        break;
+                    }
+                    default:
+                    {
+                        $msg = $_GET['error'];
+                        echo"<div class=\"alert alert-danger\" role=\"alert\">
+                         Not handled Error Message: ". $msg . "
                         </div>";
                         break;
                     }
@@ -59,7 +88,8 @@
                     case "signup":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
-                          Successfully signed up!
+                          Successfully signed up!<br>
+                          An Administrator now has to accept your registration.
                         </div>";
                         break;
                     }
@@ -74,6 +104,20 @@
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
                           Successfully logged out! 
+                        </div>";
+                        break;
+                    }
+                    case "delDeclined":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully deleted all declined Accounts! 
+                        </div>";
+                        break;
+                    }
+                    default:
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Unhandled success message: ".$_GET['success']."
                         </div>";
                         break;
                     }
