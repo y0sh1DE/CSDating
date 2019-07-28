@@ -15,6 +15,28 @@ if(isset($_SESSION['uLoggedIn']))
 
         if($count > 0)
         {
+            echo "<script>
+            function setAction(element)
+            {
+                let action = element.name.substring(0,3);
+                let uName = element.name.substring(4, element.name.length);
+                if(action == \"acc\")
+                {
+                    document.getElementById(\"frmManagment\").action = \"includes/acceptAccount.inc.php?username=\" + uName;
+                    document.getElementById(\"frmManagment\").submit();
+                }
+                else if(action == \"dec\")
+                {
+                    document.getElementById(\"frmManagment\").action = \"includes/declineAccount.inc.php?username=\" + uName;
+                    document.getElementById(\"frmManagment\").submit();
+                }
+                else
+                {
+                    alert(\"Error\");
+                }
+        
+            }
+        </script>";
             echo "<form action='includes/acceptAccount.inc.php?username=' method='post' id='frmManagment'>";
             echo"<div class=\"alert alert-primary\" role=\"alert\">
                               There are ". $count . " Accounts waiting for acceptance.<br><br>
@@ -33,25 +55,4 @@ if(isset($_SESSION['uLoggedIn']))
     }
 }
 ?>
-<script>
-    function setAction(element)
-    {
-        let action = element.name.substring(0,3);
-        let uName = element.name.substring(4, element.name.length);
-        if(action == "acc")
-        {
-            document.getElementById("frmManagment").action = "includes/acceptAccount.inc.php?username=" + uName;
-            document.getElementById("frmManagment").submit();
-        }
-        else if(action == "dec")
-        {
-            document.getElementById("frmManagment").action = "includes/declineAccount.inc.php?username=" + uName;
-            document.getElementById("frmManagment").submit();
-        }
-        else
-        {
-            alert("Error");
-        }
 
-    }
-</script>

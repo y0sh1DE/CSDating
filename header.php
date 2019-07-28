@@ -10,19 +10,35 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>CSDating V0.2</title>
+        <title>CSDating V0.3</title>
     </head>
     <body>
     <div class="container">
-        <a href="index.php"><img style="float:left" height="64" width="64" src="img/Logo.png" alt="Logo"></a>
-        <?php
-            if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
-            {
-                // Display Admin Area
-                echo "<a style=\"float:right\" href=\"usercontrol.php\" class=\"btn btn-link\">Usercontrol</a>";
-            }
-        ?>
-        <h1>CSDating V0.2 by Yoshi</h1><hr>
+
+
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="index.php"><img style="float:left" height="64" width="64" src="img/Logo.png" alt="Logo"></a>
+
+            <?php
+                if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
+                {
+                    // Display Admin Area
+                    echo "<li class=\"nav-item\">                
+                    <a class=\"nav-link\" href=\"usercontrol.php\">Usercontrol</a>
+                </li>";
+                }
+                if(isset($_SESSION['uName']))
+                {
+                    echo "<li class=\"nav-item\">
+                            <a class=\"nav-link disabled\" href=\"\">Logged in as: ".$_SESSION['uName']."</a>
+                        </li>
+                        </li>";
+                }
+            ?>
+        </ul>
+        <h1>CS-Dating by Yoshi</h1>
+        <hr>
         <?php
 
             if(isset($_GET['error']))
@@ -85,6 +101,13 @@
             {
                 switch($_GET['success'])
                 {
+                    case "makeadmin":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully made ". $_GET['username'] . " an Admin!
+                        </div>";
+                        break;
+                    }
                     case "signup":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
