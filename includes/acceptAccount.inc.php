@@ -7,7 +7,7 @@ if(isset($_GET['username']))
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     if($result === true)
     {
-        header("Location: ../index.php?success=accepted");
+        header("Location: ../usercontrol.php?success=accepted");
         exit();
     }
     else

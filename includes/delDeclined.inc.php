@@ -4,7 +4,7 @@
     if (mysqli_query($conn, $sql))
     {
         $count = mysqli_affected_rows($conn);
-        header("Location: ../index.php?success=delDeclined");
+        header("Location: ../usercontrol.php?success=delDeclined");
         exit();
     }
     else
