@@ -10,7 +10,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>CSDating V0.3b</title>
+        <title>CSDating V0.3.2</title>
     </head>
     <body>
     <div class="container">
@@ -21,19 +21,24 @@
                 <a href="index.php"><img style="float:left" height="64" width="64" src="img/Logo.png" alt="Logo"></a>
 
             <?php
-                if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
-                {
-                    // Display Admin Area
-                    echo "<li class=\"nav-item\">                
-                    <a class=\"nav-link\" href=\"usercontrol.php\">Usercontrol</a>
-                </li>";
-                }
                 if(isset($_SESSION['uName']))
                 {
+                    // If user is logged in
+                    echo "<li class=\"nav-item\">                
+                    <a class=\"nav-link\" href=\"dating.php\">Dating</a>
+                </li>";
+
                     echo "<li class=\"nav-item\">
                             <a class=\"nav-link disabled\" href=\"\">Logged in as: ".$_SESSION['uName']."</a>
                         </li>
                         </li>";
+                }
+                if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
+                {
+                    // Display Admin Area
+                    echo "<li class=\"nav-item\">                
+                    <a class=\"nav-link\" href=\"usercontrol.php\" style='color:red'>Usercontrol</a>
+                </li>";
                 }
             ?>
         </ul>
