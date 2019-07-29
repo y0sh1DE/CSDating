@@ -46,15 +46,17 @@
                                     %s |
                                     <button type='button' name='pro-%s' onclick='return setUserlistAction(this)' class='btn btn-success'>Promote</button>
                                     <button type='button' name='dem-%s' onclick='return setUserlistAction(this)' class='btn btn-warning'>Demote</button>
+                                    <button type='button' name='spw-%s' onclick='return setUserlistAction(this)' class='btn btn-primary'>Set new Password</button>
                                     <button type='button' name='del-%s' onclick='return setUserlistAction(this)' class='btn btn-danger'>Delete</button>
                                   </td>
-                                </tr>", $row[0], $row[1], $level, $row[1], $row[1], $row[1]);
+                                </tr>", $row[0], $row[1], $level, $row[1], $row[1], $row[1], $row[1]);
                                 echo $out;
                         }
                     ?>
                     </tbody>
                 </table>
                 <input type="hidden" name="tbxPromote" id="tbxPromote" />
+                <input type="hidden" name="newpw" id="newpw" />
             </form>
         </div>
     </div>
@@ -75,6 +77,18 @@
                 // demote
                 document.getElementById("frmUserList").action = "includes/demote.inc.php?username=" + uName;
                 document.getElementById("frmUserList").submit();
+            }
+            else if(mode === "spw")
+            {
+                // reset password
+                let newpw = prompt("Please enter a new Password for " + uName, "zeus");
+                if(newpw == null || newpw == ""){}
+                else
+                {
+                    document.getElementById("newpw").value = newpw;
+                    document.getElementById("frmUserList").action = "includes/setNewPW.inc.php?username=" + uName + "&newpw=" + newpw;
+                    document.getElementById("frmUserList").submit();
+                }
             }
             else if(mode === "del")
             {
