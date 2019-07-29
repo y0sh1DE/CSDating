@@ -108,6 +108,13 @@
                         </div>";
                         break;
                     }
+                    case "promoted":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully promoted ". $_GET['username']."
+                        </div>";
+                        break;
+                    }
                     case "signup":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
