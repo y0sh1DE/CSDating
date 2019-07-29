@@ -25,6 +25,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Nickname</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,13 +43,14 @@
                                 $out = sprintf("<tr>
                                   <td>%s</td>
                                   <td>%s</td>
+                                  <td>%s</td>
                                   <td>
-                                    %s |
+                                  <!-- ToDo: Hide certain buttons for certain users case depending -->
                                     <button type='button' name='pro-%s' onclick='return setUserlistAction(this)' class='btn btn-success'>Promote</button>
                                     <button type='button' name='dem-%s' onclick='return setUserlistAction(this)' class='btn btn-warning'>Demote</button>
                                     <button type='button' name='spw-%s' onclick='return setUserlistAction(this)' class='btn btn-primary'>Set new Password</button>
                                     <button type='button' name='del-%s' onclick='return setUserlistAction(this)' class='btn btn-danger'>Delete</button>
-                                  </td>
+                                    </td>
                                 </tr>", $row[0], $row[1], $level, $row[1], $row[1], $row[1], $row[1]);
                                 echo $out;
                         }
