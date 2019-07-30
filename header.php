@@ -10,7 +10,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>CSDating V0.3.3</title>
+        <title>CSDating V0.3.4</title>
     </head>
     <body>
     <div class="container">
@@ -106,6 +106,14 @@
             {
                 switch($_GET['success'])
                 {
+                    case "usercreated":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully created ". $_GET['username'] . "!<br>
+                          Password: ". $_GET['password']."
+                        </div>";
+                        break;
+                    }
                     case "makeadmin":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">

@@ -18,7 +18,6 @@
         </div>
         <div>
             <!-- USER LIST -->
-            <form name="frmUserList" id="frmUserList">
                 <table class="table">
                     <thead>
                         <tr>
@@ -29,6 +28,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <tr>
+                        <form name="frmCreateUser" id="frmCreateUser" action="includes/createUser.inc.php" method="post">
+                            <td>New User:</td>
+                            <td><input type="text" name="tbxCreateUsername" id="tbxCreateUsername" minlength="4" required></td>
+                            <td>User</td>
+                            <td><input type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-primary" value="Create"/></td>
+                        </form>
+                    </tr>
+                    <form name="frmUserList" id="frmUserList">
                     <?php
                         require_once "includes/dbh.inc.php";
                         $sql = "SELECT uID, uName, uLevel FROM tbluser";
@@ -63,6 +71,10 @@
         </div>
     </div>
     <script>
+        function createUser()
+        {
+            document.getElementById("frmCreateUser").submit();
+        }
         function setUserlistAction(element)
         {
             let uName = element.name.substring(4, element.name.length);

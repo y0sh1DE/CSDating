@@ -13,7 +13,7 @@ require_once "header.php";
         </div>
         <div class="form-group">
             <button name="btnLogin" type="submit" class="btn btn-outline-primary">Login</button>
-            <button type="button" class="btn btn-link"><a href="signup.php">No Account yet? Sign up!</a></button>
+            <!--<button type="button" class="btn btn-link"><a href="signup.php">No Account yet? Sign up!</a></button>-->
         </div>
     </form>
 </div>

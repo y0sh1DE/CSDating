@@ -1,4 +1,5 @@
 <?php
+    exit();
     if(isset($_POST['btnSignUp']))
     {
         require_once "dbh.inc.php";
