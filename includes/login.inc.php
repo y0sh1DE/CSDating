@@ -3,6 +3,7 @@
 if(isset($_POST['btnLogin']))
 {
     require_once "dbh.inc.php";
+    require_once "JFuncs.inc.php";
     $username = $_POST['tbxUsername'];
     $password = $_POST['tbxPassword'];
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
@@ -16,11 +17,17 @@ if(isset($_POST['btnLogin']))
         if($pwdCheck == true)
         {
             // Correct Password
-            if($row['uLevel'] < 1)
+            if($row['uChangePassword'] == 1)
             {
-                // user not accepted yet
-                header("Location: ../index.php?error=notaccepted");
+                // user has to change password
+                $_SESSION['uChangePassword'] = 1;
+                $_SESSION['uLoggedIn'] = 1;
+                $_SESSION['uLevel'] = $row['uLevel'];
+                $_SESSION['uName'] = $username;
+
+                redirect("../changePassword.php?username=".$username);
                 exit();
+
             }
             else
             {

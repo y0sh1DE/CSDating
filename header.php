@@ -1,5 +1,6 @@
 <?php
     session_start();
+    if(isset($_SESSION['uName'])) "includes/refreshUserinfo.inc.php";
 ?>
 <html lang="en">
     <head>
@@ -10,12 +11,10 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>CSDating V0.3.4</title>
+        <title>CSDating V0.3.5</title>
     </head>
     <body>
     <div class="container">
-
-
         <ul class="nav">
             <li class="nav-item">
                 <a href="index.php"><img style="float:left" height="64" width="64" src="img/Logo.png" alt="Logo"></a>
@@ -26,6 +25,10 @@
                     // If user is logged in
                     echo "<li class=\"nav-item\">                
                     <a class=\"nav-link\" href=\"dating.php\">Dating</a>
+                </li>";
+
+                    echo "<li class=\"nav-item\">                
+                    <a class=\"nav-link\" href=\"changePassword.php\">Change Password</a>
                 </li>";
 
                     echo "<li class=\"nav-item\">
