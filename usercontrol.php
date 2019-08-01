@@ -11,11 +11,12 @@
 
     <!-- CONTENT -->
     <div class="container">
-        <div style="float:left">
+        <!-- Delete all declined Accounts -->
+        <!--<div style="float:left">
             <form action="includes/delDeclined.inc.php">
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Do you really want to delete all declined Accounts?');">Delete all declined Accounts</button>
             </form>
-        </div>
+        </div>-->
         <div>
             <!-- USER LIST -->
                 <table class="table">
