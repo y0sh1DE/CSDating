@@ -4,4 +4,5 @@
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
-$_SESSION['uLevel'] = $row['uLevel'];
+    $_SESSION['uLevel'] = $row['uLevel'];
+    $_SESSION['uLoggedIn'] = $row['uLoggedIn'];

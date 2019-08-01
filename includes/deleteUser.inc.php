@@ -2,7 +2,7 @@
 if(isset($_GET['tbxPromote']))
 {
     $uName = $_GET['tbxPromote'];
-    if($uName === "Yoshi")
+    if($uName === $GLOBALS['ADMIN_UNAME'])
     {
         header("Location: logout.inc.php");
         exit();

@@ -1,11 +1,17 @@
 <?php
     require_once "header.php";
-    if($_SESSION['uLevel'] != 2)
+    require_once "includes/refreshUserinfo.inc.php";
+    if($_SESSION['uLoggedIn'] == 0)
+    {
+        header("Location: index.php?error=notloggedin");
+        exit();
+    }
+    else if($_SESSION['uLevel'] != 2)
     {
         header("Location: index.php?error=permission");
         exit();
     }
-    ?>
+?>
 
 <html>
 

@@ -3,6 +3,7 @@
     require_once "JFuncs.inc.php";
     if(isset($_GET['tbxNewPassword']))
     {
+        session_set_cookie_params($GLOBALS['SESSION_LIFETIME']);
         session_start();
         require_once "dbh.inc.php";
         $uName = $_GET['username'];

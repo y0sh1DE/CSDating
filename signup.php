@@ -1,8 +1,8 @@
 <?php
-require_once "includes/JFuncs.inc.php";
-redirect("index.php");
-exit();
-require_once "header.php";
+    require_once "includes/JFuncs.inc.php";
+    redirect("index.php");
+    exit();
+    require_once "header.php";
 ?>
     <main>
         <div class="container">

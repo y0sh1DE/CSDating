@@ -2,7 +2,7 @@
 if(isset($_GET['tbxPromote']))
 {
     $uName = $_GET['tbxPromote'];
-    if($uName === "Yoshi")
+    if($uName === $GLOBALS['ADMIN_UNAME'])
     {
         header("Location: logout.inc.php");
         exit();
@@ -21,7 +21,7 @@ if(isset($_GET['tbxPromote']))
             exit();
         }
         $newlevel = $oldlevel - 1;
-        $sql = sprintf("UPDATE tbluser SET uLevel=%s WHERE uName = '%s'", $newlevel, $uName);
+        $sql = sprintf("UPDATE tbluser SET uLevel=%s,uLoggedIn = 0 WHERE uName = '%s'", $newlevel, $uName);
         $result = mysqli_query($conn, $sql);
     }
     else die(mysqli_error($conn));

@@ -7,14 +7,7 @@ if(isset($_SESSION['uLoggedIn']))
     </form></div>";
 
     require_once "includes/dbh.inc.php";
-
-    // REFRESH USER INFORMATION
-
-    /*$sql = sprintf("SELECT * FROM tbluser WHERE uName = '%s'", $_SESSION['uName']);
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    $_SESSION['uLevel'] = $row['uLevel'];*/
+    require_once "includes/refreshUserinfo.inc.php";
 
     if($_SESSION['uLevel'] > 1)
     {
