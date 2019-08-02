@@ -3,10 +3,12 @@
     require_once "JFuncs.inc.php";
     if(isset($_GET['tbxNewPassword']))
     {
+        require_once "config.inc.php";
         session_set_cookie_params($GLOBALS['SESSION_LIFETIME']);
         session_start();
         require_once "dbh.inc.php";
         $uName = $_GET['username'];
+        if(isset($_SESSION['uName']) && $_SESSION['uName'] !== $uName) $uName = $_SESSION['uName'];
         $oldpassword = $_GET['tbxOldPassword'];
         $sql = sprintf("SELECT uPassword FROM tbluser WHERE uName = '%s'", $uName);
         $result = mysqli_query($conn, $sql);

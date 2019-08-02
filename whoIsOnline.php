@@ -1,8 +1,14 @@
 <html>
+    <head>
+        <script>
+
+        </script>
+    </head>
     <body>
+
         <div class="float-sm-left">
             <h3>Who is online?</h3>
-            <table class="table">
+            <table class="table" id="tblUserList">
                 <thead>
                     <tr>
                         <th scope="col">Nickname</th>
@@ -33,6 +39,7 @@
                 </tbody>
             </table>
         </div>
+
     </body>
 </html>
 

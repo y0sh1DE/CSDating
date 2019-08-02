@@ -2,7 +2,7 @@
     require_once "includes/config.inc.php";
     session_start();
     setcookie(session_name(),session_id(),time() + $GLOBALS['SESSION_LIFETIME']);
-    if(isset($_SESSION['uLoggedIn']))
+    if(isset($_SESSION['uLoggedIn']) && $_SESSION['uLoggedIn'] == 1)
     {
         require_once "includes/refreshUserinfo.inc.php";
         include_once "whoIsOnline.php";
@@ -34,7 +34,7 @@
                 </li>";
 
                     echo "<li class=\"nav-item\">                
-                    <a class=\"nav-link\" href=\"changePassword.php\">Change Password</a>
+                    <a class=\"nav-link\" href=\"changePassword.php?username=".$_SESSION['uName']."\">Change Password</a>
                 </li>";
 
                     echo "<li class=\"nav-item\">
