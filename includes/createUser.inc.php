@@ -7,8 +7,12 @@
         $uPassword = generateRandomString(10);
         $uPasswordHash = password_hash($uPassword, PASSWORD_DEFAULT);
         $sql = sprintf("INSERT INTO tbluser (uName, uPassword, uLevel, uChangePassword) VALUES('%s', '%s', 1, 1)", $uName, $uPasswordHash);
-        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-
+        $result = mysqli_query($conn, $sql);
+        if(!$result)
+        {
+            redirect("../usercontrol.php?error=usernametaken");
+            exit();
+        }
         $url = sprintf("../usercontrol.php?success=usercreated&username=%s&password=%s", $uName, $uPassword);
         redirect($url);
         exit();
