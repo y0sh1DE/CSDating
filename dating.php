@@ -70,7 +70,7 @@
         </div>
         <div class="col">
             <!-- DATES LIST -->
-            
+
         </div>
         </div>
     </div>
