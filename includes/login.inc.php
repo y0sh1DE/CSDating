@@ -25,6 +25,7 @@ if(isset($_POST['btnLogin']))
                 session_start();
                 $_SESSION['uChangePassword'] = 1;
                 $_SESSION['uLoggedIn'] = 1;
+                $_SESSION['uID'] = $row['uID'];
 
                 $_SESSION['uName'] = $username;
                 $_SESSION['uLevel'] = $row['uLevel'];
@@ -39,6 +40,7 @@ if(isset($_POST['btnLogin']))
                 $_SESSION['uName'] = $username;
                 $_SESSION['uLevel'] = $row['uLevel'];
                 $_SESSION['uLoggedIn'] = 1;
+                $_SESSION['uID'] = $row['uID'];
                 header("Location: ../index.php?success=login");
             }
             $sql = sprintf("UPDATE tbluser SET uLoggedIn = 1 WHERE uName = '%s'", $username);

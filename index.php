@@ -10,12 +10,14 @@
     }
     else
     {
-        require_once "dating.php";
+        // if logged in
     }
 ?>
 
 <main>
-    <!-- DEFAULT LANDING PAGE -->
+    <div class="container">
+        <h3>Welcome!</h3>
+    </div>
 </main>
 
 <?php

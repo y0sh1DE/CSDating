@@ -1,3 +1,4 @@
 <?php
     $GLOBALS['SESSION_LIFETIME'] = 60;
     $GLOBALS['ADMIN_UNAME'] = "Yoshi";
+    $GLOBALS['MAX_DAYS_AHEAD'] = 3;

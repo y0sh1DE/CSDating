@@ -30,7 +30,11 @@
                 {
                     // If user is logged in
                     echo "<li class=\"nav-item\">                
-                    <a class=\"nav-link\" href=\"dating.php\">Dating</a>
+                    <a class=\"nav-link\" href=\"dating.php\">Sign up</a>
+                </li>";
+
+                    echo "<li class=\"nav-item\">                
+                    <a class=\"nav-link disabled\" href=\"mapvoting.php\">Map Voting</a>
                 </li>";
 
                     echo "<li class=\"nav-item\">                
@@ -114,6 +118,20 @@
             {
                 switch($_GET['success'])
                 {
+                    case "setdate":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully set your arrival time!
+                        </div>";
+                        break;
+                    }
+                    case "updatedate":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully updated your arrival time!
+                        </div>";
+                        break;
+                    }
                     case "usercreated":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">

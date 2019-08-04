@@ -29,6 +29,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
@@ -80,7 +81,9 @@
       <workItem from="1564516491345" duration="6997000" />
       <workItem from="1564679036140" duration="6178000" />
       <workItem from="1564697831830" duration="2063000" />
-      <workItem from="1564764005744" duration="2751000" />
+      <workItem from="1564764005744" duration="2927000" />
+      <workItem from="1564941121210" duration="68000" />
+      <workItem from="1564946896921" duration="8463000" />
     </task>
     <servers />
   </component>
