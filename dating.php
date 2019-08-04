@@ -12,7 +12,7 @@
             <div class="col">
             <form action="includes/submitTime.inc.php" method="get" id="frmSetTime">
                 <div class="form-group">
-                    <label for="selTime">Which day are you talking about?</label>
+                    <label for="selTime">Which day do you want to set your time for?</label>
                     <select class="form-control" id="selDate" name="selDate">
                         <?php
                             require_once "includes/config.inc.php";
@@ -24,7 +24,7 @@
                             }
                         ?>
                     </select>
-                    <label for="selTime">When are you ready for CS?</label>
+                    <label for="selTime">When are you ready for Counter-Strike?</label>
                     <select class="form-control" id="selTime" name="selTime">
                         <option>Not at all</option>
                         <option>16:00</option>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tbxComment">Comment</label>
-                    <textarea class="form-control" name="tbxComment" id="tbxComment" rows="3" maxlength="100"></textarea>
+                    <textarea class="form-control" name="tbxComment" id="tbxComment" rows="3" maxlength="30"></textarea>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" name="btnSubmit" id="btnSubmit" value="Submit"/>
@@ -70,7 +70,44 @@
         </div>
         <div class="col">
             <!-- DATES LIST -->
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Nickname</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Set at</th>
+                    <th scope="col">Created at</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                    require_once "includes/dbh.inc.php";
 
+                    $sql = "SELECT * FROM tbldate2user";
+                    $result = mysqli_query($conn, $sql);
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        $sql = sprintf("SELECT uName FROM tbluser WHERE uID = '%s'", $row['uID']);
+                        $nameresult = mysqli_query($conn, $sql);
+                        $nameRow = mysqli_fetch_assoc($nameresult);
+                        $uName = $nameRow['uName'];
+                        $output = sprintf("
+                            <tr>
+                                <td>%s</td>
+                                <td>%s</td>
+                                <td>%s</td>
+                                <td>%s</td>
+                                <td>%s</td>     
+                                <td>%s</td>                        
+                            </tr>                        
+                        ", $uName, $row['dDate'], $row['dTime'], $row['uComment'], $row['d2uSet'], $row['d2uCreated']);
+                        echo $output;
+                    }
+                ?>
+                </tbody>
+            </table>
         </div>
         </div>
     </div>
