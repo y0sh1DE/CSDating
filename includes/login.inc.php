@@ -43,7 +43,7 @@ if(isset($_POST['btnLogin']))
                 $_SESSION['uID'] = $row['uID'];
                 header("Location: ../index.php?success=login");
             }
-            $sql = sprintf("UPDATE tbluser SET uLoggedIn = 1 WHERE uName = '%s'", $username);
+            $sql = sprintf("UPDATE tbluser SET uLoggedIn = 1, uLastLogin = current_timestamp() WHERE uName = '%s'", $username);
             $result = mysqli_query($conn, $sql);
             exit();
         }

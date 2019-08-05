@@ -31,6 +31,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Nickname</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Last Login</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -40,13 +41,14 @@
                             <td>New User:</td>
                             <td><input type="text" name="tbxCreateUsername" id="tbxCreateUsername" minlength="4" required></td>
                             <td>User</td>
+                            <td></td>
                             <td><input type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-primary" value="Create"/></td>
                         </form>
                     </tr>
                     <form name="frmUserList" id="frmUserList">
                     <?php
                         require_once "includes/dbh.inc.php";
-                        $sql = "SELECT uID, uName, uLevel FROM tbluser";
+                        $sql = "SELECT uID, uName, uLevel, uLastLogin FROM tbluser";
                         $result = mysqli_query($conn, $sql);
                         while($row = mysqli_fetch_row($result))
                         {
@@ -59,6 +61,7 @@
                                   <td>%s</td>
                                   <td>%s</td>
                                   <td>%s</td>
+                                  <td>%s</td>
                                   <td>
                                   <!-- ToDo: Hide certain buttons for certain users case depending -->
                                     <button type='button' name='pro-%s' onclick='return setUserlistAction(this)' class='btn btn-success'>Promote</button>
@@ -66,7 +69,7 @@
                                     <button type='button' name='spw-%s' onclick='return setUserlistAction(this)' class='btn btn-primary'>Set new Password</button>
                                     <button type='button' name='del-%s' onclick='return setUserlistAction(this)' class='btn btn-danger'>Delete</button>
                                     </td>
-                                </tr>", $row[0], $row[1], $level, $row[1], $row[1], $row[1], $row[1]);
+                                </tr>", $row[0], $row[1], $level, $row[3], $row[1] ,$row[1], $row[1], $row[1]);
                                 echo $out;
                         }
                     ?>
