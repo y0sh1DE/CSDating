@@ -118,6 +118,13 @@
             {
                 switch($_GET['success'])
                 {
+                    case "deleteoldentries":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully deleted ". $_GET['amount'] . " old entries!
+                        </div>";
+                        break;
+                    }
                     case "setdate":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">

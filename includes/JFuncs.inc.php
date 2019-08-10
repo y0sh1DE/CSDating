@@ -15,3 +15,8 @@
         }
         return $randomString;
     }
+
+    function isUserAdmin()
+    {
+        return ($_SESSION['uLevel'] == 2);
+    }

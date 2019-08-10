@@ -13,9 +13,8 @@
     $dTime = $_GET['selTime'];
     $uComment = $_GET['tbxComment'];
 
-    // 1. Check if the date is already set by someone
+    // 1. Check if the date is already set by the user
     $sql = sprintf("SELECT * FROM tbldate2user WHERE dDate = '%s' AND uID = '%s'", $dDate, $uID);
-    echo $sql;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     if(!$row)
