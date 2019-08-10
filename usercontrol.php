@@ -48,11 +48,13 @@
                     <form name="frmUserList" id="frmUserList">
                     <?php
                         require_once "includes/dbh.inc.php";
-                        $sql = "SELECT uID, uName, uLevel, uLastLogin FROM tbluser";
+                        $sql = "SELECT uID, uName, uLevel, uLastLogin, uRegistered FROM tbluser";
                         $result = mysqli_query($conn, $sql);
                         while($row = mysqli_fetch_row($result))
                         {
                             $level = "";
+                            $lastLogin = $row[3];
+                            if($lastLogin == $row[4]) $lastLogin = "Never";
                             if($row[2] == 0) $level = "Waiting for Acceptance";
                             else if($row[2] == 1) $level = "User";
                             else if($row[2] == 2) $level = "Administrator";
@@ -69,7 +71,7 @@
                                     <button type='button' name='spw-%s' onclick='return setUserlistAction(this)' class='btn btn-primary'>Set new Password</button>
                                     <button type='button' name='del-%s' onclick='return setUserlistAction(this)' class='btn btn-danger'>Delete</button>
                                     </td>
-                                </tr>", $row[0], $row[1], $level, $row[3], $row[1] ,$row[1], $row[1], $row[1]);
+                                </tr>", $row[0], $row[1], $level, $lastLogin, $row[1] ,$row[1], $row[1], $row[1]);
                                 echo $out;
                         }
                     ?>
