@@ -30,7 +30,7 @@
     else
     {
         // If user has an appointment on this day already
-        $sql = sprintf("UPDATE tbldate2user SET dTime = '%s' WHERE uID = '%s' AND dDate = '%s'", $dTime, $uID, $dDate);
+        $sql = sprintf("UPDATE tbldate2user SET dTime = '%s', uComment = '%s' WHERE uID = '%s' AND dDate = '%s'", $dTime, $uComment , $uID, $dDate);
         $result = mysqli_query($conn, $sql);
 
         redirect("../dating.php?success=updatedate");
