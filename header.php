@@ -53,6 +53,13 @@
                     <a class=\"nav-link\" href=\"usercontrol.php\" style='color:red'>Usercontrol</a>
                 </li>";
                 }
+                if(isset($_SESSION['uLevel']) && $_SESSION['uName'] == $GLOBALS['ADMIN_UNAME'])
+                {
+                    // Display Super-Admin Area
+                    echo "<li class=\"nav-item\">                
+                    <a class=\"nav-link\" href=\"configControl.php\" style='color:red'>Configcontrol</a>
+                </li>";
+                }
             ?>
         </ul>
         <h1>CS-Dating by Yoshi</h1>
@@ -63,6 +70,13 @@
             {
                 switch ($_GET['error'])
                 {
+                    case "missingdata":
+                    {
+                        echo"<div class=\"alert alert-danger\" role=\"alert\">
+                          You cannot save an incomplete Configuration file!
+                        </div>";
+                        break;
+                    }
                     case "sqlerror":
                     {
                         echo"<div class=\"alert alert-danger\" role=\"alert\">
@@ -122,6 +136,13 @@
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
                           Successfully deleted ". $_GET['amount'] . " old entries!
+                        </div>";
+                        break;
+                    }
+                    case "savedconfig":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully saved the new configuration!
                         </div>";
                         break;
                     }

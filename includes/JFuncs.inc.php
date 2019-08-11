@@ -20,3 +20,8 @@
     {
         return ($_SESSION['uLevel'] == 2);
     }
+
+    function isUserSuperAdmin()
+    {
+        return ($_SESSION['uName'] == $GLOBALS['ADMIN_UNAME']);
+    }
