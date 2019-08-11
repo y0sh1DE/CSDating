@@ -1,9 +1,4 @@
 <html>
-    <head>
-        <script>
-
-        </script>
-    </head>
     <body>
 
         <div class="float-sm-left">
@@ -13,12 +8,15 @@
                     <tr>
                         <th scope="col">Nickname</th>
                         <th scope="col">Level</th>
+                        <?php
+                            if($_SESSION['uLevel'] == 2) echo "<th scope='col'>Address</th>";
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         require_once "includes/dbh.inc.php";
-                        $sql = "SELECT uName, uLevel FROM tbluser WHERE uLoggedIn = 1 AND uLevel >= 1";
+                        $sql = "SELECT uName, uLevel, uLastAddress FROM tbluser WHERE uLoggedIn = 1 AND uLevel >= 1";
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result))
                         {
@@ -32,7 +30,11 @@
                                 <td>
                                     %s
                                 </td>
-                            </tr>", $row['uName'], $level);
+                            ", $row['uName'], $level);
+
+                            if($_SESSION['uLevel'] == 2) $out .= sprintf("<td>%s</td>", $row['uLastAddress']);
+
+                            $out .= "</tr>";
                             echo $out;
                         }
                     ?>

@@ -30,7 +30,12 @@ if(isset($_POST['btnLogin']))
                 $_SESSION['uName'] = $username;
                 $_SESSION['uLevel'] = $row['uLevel'];
 
+                require_once "dbh.inc.php";
+                $sql = sprintf("UPDATE tbluser SET uLoggedIn = 1, uLastLogin = current_timestamp(), uLastAddress = '%s' WHERE uName = '%s'",$_SERVER['REMOTE_ADDR'], $username);
+                $result = mysqli_query($conn, $sql);
+
                 redirect("../changePassword.php?username=".$username);
+                exit();
             }
             else
             {
@@ -43,7 +48,7 @@ if(isset($_POST['btnLogin']))
                 $_SESSION['uID'] = $row['uID'];
                 header("Location: ../index.php?success=login");
             }
-            $sql = sprintf("UPDATE tbluser SET uLoggedIn = 1, uLastLogin = current_timestamp() WHERE uName = '%s'", $username);
+            $sql = sprintf("UPDATE tbluser SET uLoggedIn = 1, uLastLogin = current_timestamp(), uLastAddress = '%s' WHERE uName = '%s'",$_SERVER['REMOTE_ADDR'], $username);
             $result = mysqli_query($conn, $sql);
             exit();
         }
