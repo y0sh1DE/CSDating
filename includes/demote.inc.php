@@ -1,8 +1,9 @@
 <?php
 if(isset($_GET['tbxPromote']))
 {
+    require_once "config.inc.php";
     $uName = $_GET['tbxPromote'];
-    if($uName === $GLOBALS['ADMIN_UNAME'])
+    if($uName == $GLOBALS['ADMIN_UNAME'])
     {
         header("Location: logout.inc.php");
         exit();
