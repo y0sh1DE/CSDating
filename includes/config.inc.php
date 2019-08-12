@@ -9,3 +9,6 @@
     // Maximum days the user can
     $GLOBALS["MAX_DAYS_AHEAD"] = 7;
     
+    // Maximum days the user can
+    $GLOBALS["SIGNUP_MODE"] = 0;
+    

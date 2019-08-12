@@ -190,6 +190,14 @@
                         </div>";
                         break;
                     }
+                    case "signupInstant":
+                    {
+                        echo"<div class=\"alert alert-primary\" role=\"alert\">
+                          Successfully signed up!<br>
+                          You can now login and use the website.
+                        </div>";
+                        break;
+                    }
                     case "login":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">

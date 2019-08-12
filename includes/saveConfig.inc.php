@@ -13,6 +13,7 @@
     $sessionLifetime = $_POST['tbxSessionLifetime'];
     $adminUName = $_POST['tbxSuperAdmin'];
     $maxdaysahead = $_POST['tbxMaxDaysAhead'];
+    $signUpMode = $_POST['selRegisterMethod'];
 
     $output = sprintf("
     <?php
@@ -24,7 +25,10 @@
 
     // Maximum days the user can
     \$GLOBALS[\"MAX_DAYS_AHEAD\"] = %s;
-    ", $sessionLifetime, $adminUName, $maxdaysahead);
+    
+    // Maximum days the user can
+    \$GLOBALS[\"SIGNUP_MODE\"] = %s;
+    ", $sessionLifetime, $adminUName, $maxdaysahead, $signUpMode);
 
     file_put_contents("config.inc.php", $output);
 

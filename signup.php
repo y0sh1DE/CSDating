@@ -1,7 +1,11 @@
 <?php
     require_once "includes/JFuncs.inc.php";
-    redirect("index.php");
-    exit();
+    require_once "includes/config.inc.php";
+    if($GLOBALS['SIGNUP_MODE'] == 0)
+    {
+        redirect("index.php");
+        exit();
+    }
     require_once "header.php";
 ?>
     <main>
@@ -24,5 +28,5 @@
     </main>
 
 <?php
-require "footer.php";
+    require "footer.php";
 ?>

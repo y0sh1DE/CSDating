@@ -37,6 +37,11 @@ if(isset($_POST['btnLogin']))
                 redirect("../changePassword.php?username=".$username);
                 exit();
             }
+            else if($row['uLevel'] == 0)
+            {
+                header("Location: ../index.php?error=notaccepted");
+                exit();
+            }
             else
             {
                 // Account accepted

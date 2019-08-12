@@ -61,6 +61,20 @@
                             </td>
                         </div>
                     </tr>
+                    <tr>
+                        <div class="form-group">
+                            <td>
+                                New Accounts are created by:
+                            </td>
+                            <td>
+                                <select class="form-control" id="selRegisterMethod" name="selRegisterMethod" value="User (Acceptation by Administrator)">
+                                    <option value="0" <?php if($GLOBALS['SIGNUP_MODE'] == "0") echo "selected"; ?>>Administrator</option>
+                                    <option value="1" <?php if($GLOBALS['SIGNUP_MODE'] == "1") echo "selected"; ?>>User (Acceptation by Administrator)</option>
+                                    <option value="2" <?php if($GLOBALS['SIGNUP_MODE'] == "2") echo "selected"; ?>>User (Instant Access)</option>
+                                </select>
+                            </td>
+                        </div>
+                    </tr>
                 </form>
                 </tbody>
             </table>
