@@ -45,22 +45,36 @@
                             <a class=\"nav-link disabled\" href=\"\">Logged in as: ".$_SESSION['uName']."</a>
                         </li>
                         </li>";
+
+                    if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
+                    {
+                        // Display Admin Area
+                        echo "<li class=\"nav-item\">                
+                        <a class=\"nav-link\" href=\"usercontrol.php\" style='color:red'>Usercontrol</a>
+                    </li>";
+                    }
+                    if(isset($_SESSION['uLevel']) && $_SESSION['uName'] == $GLOBALS['ADMIN_UNAME'])
+                    {
+                        // Display Super-Admin Area
+                        echo "<li class=\"nav-item\">                
+                        <a class=\"nav-link\" href=\"configControl.php\" style='color:red'>Configcontrol</a>
+                    </li>";
+                    }
                 }
-                if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
+                else
                 {
-                    // Display Admin Area
-                    echo "<li class=\"nav-item\">                
-                    <a class=\"nav-link\" href=\"usercontrol.php\" style='color:red'>Usercontrol</a>
-                </li>";
-                }
-                if(isset($_SESSION['uLevel']) && $_SESSION['uName'] == $GLOBALS['ADMIN_UNAME'])
-                {
-                    // Display Super-Admin Area
-                    echo "<li class=\"nav-item\">                
-                    <a class=\"nav-link\" href=\"configControl.php\" style='color:red'>Configcontrol</a>
-                </li>";
+                    // if user is not logged in
+                    require_once "includes/config.inc.php";
+                    $label = "Login";
+                    if($GLOBALS['SIGNUP_MODE'] != 0) $label .= " / Sign Up";
+                    echo sprintf("<li class=\"nav-item\">                
+                    <a class=\"nav-link\" href=\"index.php\">%s</a>
+                </li>", $label);
                 }
             ?>
+            <li class="nav-item">
+                <a class="nav-link" href="statistics.php">Statistics</a>
+            </li>
         </ul>
         <h1>Conies Homies</h1>
         <small>Gaming since 2016</small>
