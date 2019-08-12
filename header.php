@@ -62,7 +62,8 @@
                 }
             ?>
         </ul>
-        <h1>CS-Dating by Yoshi</h1>
+        <h1>Conies Homies</h1>
+        <small>Gaming since 2016</small>
         <hr>
         <?php
 
@@ -70,6 +71,16 @@
             {
                 switch ($_GET['error'])
                 {
+                    case "noentries":
+                    {
+                        require_once "includes/config.inc.php";
+                        echo sprintf("<div class=\"alert alert-danger\" role=\"alert\">
+                          There are no entries to delete in range. <br>
+                          If you want to tidy up the database, ask the current Super-Admin (%s)
+                          about expanding the range.
+                        </div>", $GLOBALS['ADMIN_UNAME']);
+                        break;
+                    }
                     case "missingdata":
                     {
                         echo"<div class=\"alert alert-danger\" role=\"alert\">

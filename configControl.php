@@ -14,7 +14,8 @@
             {
                 let lifetime = document.getElementById("tbxSessionLifetime").value;
                 let maxdays = document.getElementById("tbxMaxDaysAhead").value;
-                if(!isNaN(lifetime) && !isNaN(maxdays))
+                let delStep = document.getElementById("tbxEntryDelete").value;
+                if(!isNaN(lifetime) && !isNaN(maxdays) && !isNaN(delStep))
                 {
                     document.getElementById("frmConfiguration").submit();
                 }
@@ -72,6 +73,17 @@
                                     <option value="1" <?php if($GLOBALS['SIGNUP_MODE'] == "1") echo "selected"; ?>>User (Acceptation by Administrator)</option>
                                     <option value="2" <?php if($GLOBALS['SIGNUP_MODE'] == "2") echo "selected"; ?>>User (Instant Access)</option>
                                 </select>
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <td>
+                                Amount of old entries to be deleted <br>
+                                when pressing the specified button on the dating page:
+                            </td>
+                            <td>
+                                <input type="text" name="tbxEntryDelete" id="tbxEntryDelete" required="required" value="<?php require_once "includes/config.inc.php"; echo $GLOBALS['ENTRYDELETE_STEP']; ?>">
                             </td>
                         </div>
                     </tr>

@@ -6,13 +6,20 @@
     }
     else
     {
-        // if logged in
+        // if logged in -- WHATS THE PURPOSE OF AN INDEX PAGE???
+        echo "<div class=\"container\">
+                <pre>
+                This is the index page. Here is nothing cool so far.
+                Any Ideas? Tell me.
+                </pre>
+            </div>
+";
     }
 ?>
 
 <main>
-</main>
 
+</main>
 <?php
     require_once "footer.php";
 ?>

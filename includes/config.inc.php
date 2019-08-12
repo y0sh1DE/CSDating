@@ -7,8 +7,11 @@
     $GLOBALS["ADMIN_UNAME"] = "Yoshi";
 
     // Maximum days the user can
-    $GLOBALS["MAX_DAYS_AHEAD"] = 7;
+    $GLOBALS["MAX_DAYS_AHEAD"] = 20;
     
-    // Maximum days the user can
+    // How the new accounts can get created
     $GLOBALS["SIGNUP_MODE"] = 0;
+    
+    // Stepwidth of delete old entries button
+    $GLOBALS['ENTRYDELETE_STEP'] = 5;
     

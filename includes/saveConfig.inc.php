@@ -14,6 +14,7 @@
     $adminUName = $_POST['tbxSuperAdmin'];
     $maxdaysahead = $_POST['tbxMaxDaysAhead'];
     $signUpMode = $_POST['selRegisterMethod'];
+    $entryDelete = $_POST['tbxEntryDelete'];
 
     $output = sprintf("
     <?php
@@ -26,9 +27,12 @@
     // Maximum days the user can
     \$GLOBALS[\"MAX_DAYS_AHEAD\"] = %s;
     
-    // Maximum days the user can
+    // How the new accounts can get created
     \$GLOBALS[\"SIGNUP_MODE\"] = %s;
-    ", $sessionLifetime, $adminUName, $maxdaysahead, $signUpMode);
+    
+    // Stepwidth of delete old entries button
+    \$GLOBALS['ENTRYDELETE_STEP'] = %s;
+    ", $sessionLifetime, $adminUName, $maxdaysahead, $signUpMode, $entryDelete);
 
     file_put_contents("config.inc.php", $output);
 

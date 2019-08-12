@@ -125,7 +125,7 @@
                         require_once "includes/JFuncs.inc.php";
                         if(isUserAdmin())
                         {
-                            echo "<input type=\"submit\" class=\"btn btn-outline-danger\" name=\"btnDeleteOldEntries\" id=\"btnDeleteOldEntries\" value=\"Delete old Entries\"/>";
+                            echo sprintf("<input type=\"submit\" class=\"btn btn-outline-danger\" name=\"btnDeleteOldEntries\" id=\"btnDeleteOldEntries\" value=\"Delete %s oldest Entries\"/>", $GLOBALS['ENTRYDELETE_STEP']);
                         }
                     ?>
             </form>

@@ -8,11 +8,19 @@
         exit();
     }
 
-    $sql = sprintf("DELETE FROM tbldate2user WHERE STRCMP(SUBSTRING(CONVERT(d2uCreated, CHAR),0,10),'%s') = 0 
-    AND STRCMP(SUBSTRING(CONVERT(d2uSet, CHAR),0,10),'%s') = 0", date('Y-m-d'));
+    $date = date('Y-m-d');
+    $sql = sprintf("DELETE FROM tbldate2user WHERE dID BETWEEN (SELECT MIN(dID) FROM tbldate2user) AND ((SELECT MIN(dID) FROM tbldate2user) + '%s')", $GLOBALS['ENTRYDELETE_STEP']);
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     $rows = mysqli_affected_rows($conn);
 
-    redirect("../dating.php?success=deleteoldentries&amount=" . $rows);
-    exit();
+    if($rows <= 0)
+    {
+        redirect("../dating.php?error=noentries");
+        exit();
+    }
+    else
+    {
+        redirect("../dating.php?success=deleteoldentries&amount=" . $rows);
+        exit();
+    }
