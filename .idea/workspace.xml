@@ -33,11 +33,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\CSDating.git" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\CSDating\includes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\CSDating.git" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -92,6 +92,7 @@
       <workItem from="1565513981707" duration="2469000" />
       <workItem from="1565552666014" duration="5272000" />
       <workItem from="1565640893081" duration="8590000" />
+      <workItem from="1566067563801" duration="4902000" />
     </task>
     <servers />
   </component>

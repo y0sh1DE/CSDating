@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "CSDating Backend"
+AuthUserFile "../htdocs/CSDating/Backend/.htpasswd"
+Require valid-user
