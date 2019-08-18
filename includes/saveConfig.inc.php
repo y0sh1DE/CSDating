@@ -15,6 +15,7 @@
     $maxdaysahead = $_POST['tbxMaxDaysAhead'];
     $signUpMode = $_POST['selRegisterMethod'];
     $entryDelete = $_POST['tbxEntryDelete'];
+    $motd = $_POST['tbxMOTD'];
 
     $output = sprintf("
     <?php
@@ -32,7 +33,10 @@
     
     // Stepwidth of delete old entries button
     \$GLOBALS['ENTRYDELETE_STEP'] = %s;
-    ", $sessionLifetime, $adminUName, $maxdaysahead, $signUpMode, $entryDelete);
+    
+    // message of the day
+    \$GLOBALS['motd'] = \"%s\";
+    ", $sessionLifetime, $adminUName, $maxdaysahead, $signUpMode, $entryDelete, $motd);
 
     file_put_contents("config.inc.php", $output);
 

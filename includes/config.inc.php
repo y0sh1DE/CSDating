@@ -15,3 +15,6 @@
     // Stepwidth of delete old entries button
     $GLOBALS['ENTRYDELETE_STEP'] = 5;
     
+    // message of the day
+    $GLOBALS['motd'] = "";
+    

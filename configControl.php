@@ -15,8 +15,10 @@
                 let lifetime = document.getElementById("tbxSessionLifetime").value;
                 let maxdays = document.getElementById("tbxMaxDaysAhead").value;
                 let delStep = document.getElementById("tbxEntryDelete").value;
+
                 if(!isNaN(lifetime) && !isNaN(maxdays) && !isNaN(delStep))
                 {
+
                     document.getElementById("frmConfiguration").submit();
                 }
             }
@@ -84,6 +86,16 @@
                             </td>
                             <td>
                                 <input type="text" name="tbxEntryDelete" id="tbxEntryDelete" required="required" value="<?php require_once "includes/config.inc.php"; echo $GLOBALS['ENTRYDELETE_STEP']; ?>">
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <td>
+                                Message of the day:
+                            </td>
+                            <td>
+                                <textarea type="text" cols="50" rows="4" name="tbxMOTD" id="tbxMOTD" required="required"><?php require_once "includes/config.inc.php"; echo $GLOBALS['motd']; ?></textarea>
                             </td>
                         </div>
                     </tr>
