@@ -8,8 +8,8 @@
         exit();
     }
 
-    $date = date('Y-m-d');
-    $sql = sprintf("DELETE FROM tbldate2user WHERE dID BETWEEN (SELECT MIN(dID) FROM tbldate2user) AND ((SELECT MIN(dID) FROM tbldate2user) + '%s')", $GLOBALS['ENTRYDELETE_STEP']);
+    require_once "config.inc.php";
+    $sql = sprintf("DELETE FROM tbldate2user WHERE dID BETWEEN (SELECT MIN(dID) FROM tbldate2user) AND ((SELECT MIN(dID) FROM tbldate2user) + (%s - 1))", $GLOBALS['ENTRYDELETE_STEP']);
 
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     $rows = mysqli_affected_rows($conn);

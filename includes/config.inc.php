@@ -7,7 +7,7 @@
     $GLOBALS["ADMIN_UNAME"] = "Yoshi";
 
     // Maximum days the user can
-    $GLOBALS["MAX_DAYS_AHEAD"] = 20;
+    $GLOBALS["MAX_DAYS_AHEAD"] = 10;
     
     // How the new accounts can get created
     $GLOBALS["SIGNUP_MODE"] = 0;
