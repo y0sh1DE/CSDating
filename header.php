@@ -75,6 +75,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="statistics.php">Statistics</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tsviewer.php">TS-Viewer</a>
+            </li>
         </ul>
         <h1>Conies Homies</h1>
         <small>Gaming since 2016</small><br><br>
