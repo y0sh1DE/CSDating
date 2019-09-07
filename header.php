@@ -111,6 +111,13 @@
                         </div>", $GLOBALS['ADMIN_UNAME']);
                         break;
                     }
+                    case "invaliduid":
+                    {
+                        echo"<div class=\"alert alert-danger\" role=\"alert\">
+                          The requested User ID does not exist!
+                        </div>";
+                        break;
+                    }
                     case "missingdata":
                     {
                         echo"<div class=\"alert alert-danger\" role=\"alert\">
