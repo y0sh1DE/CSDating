@@ -59,7 +59,7 @@
                                 <input type=\"text\" value=\"%s\" name=\"tbxDatingEntries\" id=\"tbxDatingEntries\" class=\"form-control\" disabled>
                                 <hr>
                                 <label for=\"tbxUsername\">Teamspeak Status</label><br><br>
-                                <img width='500' src=\"%s\" alt=\"tsStatus\">", $filename ,$row[0], $row[1], $datingEntries, $row[2]);
+                                <img width='500' src=\"%s\" alt=\"tsStatus\" onerror=\"this.onerror=null; this.src='img/blank.png'\">", $filename ,$row[0], $row[1], $datingEntries, $row[2]);
                             echo $output;
                             ?>
 

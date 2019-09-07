@@ -51,7 +51,7 @@
 
             for (let i = 0; i < tr.length; i++)
             {
-                let td = tr[i].getElementsByTagName("td")[1];
+                let td = tr[i].getElementsByTagName("td")[2];
                 if (td) {
                     let txtValue = td.textContent || td.innerText;
                     if (txtValue == filter) {
@@ -135,6 +135,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Nickname</th>
+                    <th scope="col">Avatar</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
                     <th scope="col">Comment</th>
@@ -157,13 +158,14 @@
                         $output = sprintf("
                             <tr>
                                 <td>%s</td>
+                                <td><img width='50' src='avatars/%s.png' alt='' onerror=\"this.onerror=null; this.src='avatars/-1.png'\"></td>
                                 <td>%s</td>
                                 <td>%s</td>
                                 <td>%s</td>
                                 <td>%s</td>     
                                 <td>%s</td>                        
                             </tr>                        
-                        ", $uName, $row['dDate'], $row['dTime'], $row['uComment'], $row['d2uSet'], $row['d2uCreated']);
+                        ", $uName, $row['uID'], $row['dDate'], $row['dTime'], $row['uComment'], $row['d2uSet'], $row['d2uCreated']);
                         echo $output;
                     }
                 ?>
