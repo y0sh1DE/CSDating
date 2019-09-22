@@ -29,23 +29,20 @@
                 if(isset($_SESSION['uLoggedIn']))
                 {
                     // If user is logged in
-                    echo "<li class=\"nav-item\">                
+                    echo "<li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"dating.php\">Dating</a>
                 </li>";
 
                     $uid = $_SESSION['uID'];
-                    echo sprintf("<li class=\"nav-item\">                
+                    echo sprintf("<li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"profile.php?uid=%s\">Profiles</a>
                 </li>",$uid);
 
-                    echo "<li class=\"nav-item\">                
+                    echo "<li class=\"nav-item\">
                     <a class=\"nav-link disabled\" href=\"mapvoting.php\">Map Voting</a>
                 </li>";
 
-                    echo "<li class=\"nav-item\">                
-                    <a class=\"nav-link\" href=\"changePassword.php?username=".$_SESSION['uName']."\">Change Password</a>
-                </li>";
-
+                    
                     echo "<li class=\"nav-item\">
                             <a class=\"nav-link disabled\" href=\"\">Logged in as: ".$_SESSION['uName']."</a>
                         </li>
@@ -54,14 +51,14 @@
                     if(isset($_SESSION['uLevel']) && $_SESSION['uLevel'] == 2)
                     {
                         // Display Admin Area
-                        echo "<li class=\"nav-item\">                
+                        echo "<li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"usercontrol.php\" style='color:red'>Usercontrol</a>
                     </li>";
                     }
                     if(isset($_SESSION['uLevel']) && $_SESSION['uName'] == $GLOBALS['ADMIN_UNAME'])
                     {
                         // Display Super-Admin Area
-                        echo "<li class=\"nav-item\">                
+                        echo "<li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"configControl.php\" style='color:red'>Configcontrol</a>
                     </li>";
                     }
@@ -72,7 +69,7 @@
                     require_once "includes/config.inc.php";
                     $label = "Login";
                     if($GLOBALS['SIGNUP_MODE'] != 0) $label .= " / Sign Up";
-                    echo sprintf("<li class=\"nav-item\">                
+                    echo sprintf("<li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"index.php\">%s</a>
                 </li>", $label);
                 }
@@ -249,21 +246,21 @@
                     case "login":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
-                          Welcome back ". $_SESSION["uName"] . "! 
+                          Welcome back ". $_SESSION["uName"] . "!
                         </div>";
                         break;
                     }
                     case "logout":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
-                          Successfully logged out! 
+                          Successfully logged out!
                         </div>";
                         break;
                     }
                     case "delDeclined":
                     {
                         echo"<div class=\"alert alert-primary\" role=\"alert\">
-                          Successfully deleted all declined Accounts! 
+                          Successfully deleted all declined Accounts!
                         </div>";
                         break;
                     }
