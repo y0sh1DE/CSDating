@@ -85,7 +85,9 @@
                         </td>
                     </tr>";
                     echo "<tr>";
-                    include_once "changePassword.php";
+                        echo "<td>";
+                            include_once "changePassword.php";
+                        echo "</td>";
                     echo "</tr>";
                     }
                 ?>
