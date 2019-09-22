@@ -76,7 +76,7 @@
                             <label for=\"imgAvatarUpload\">Avatar</label><br>
                             <input name=\"imgAvatarUpload\" id=\"imgAvatarUpload\" type=\"file\" accept=\"image/png\" required>
                         </td>
-                    
+
                     <tr>
                         <td>
                             <input class=\"btn btn-primary\" value=\"Save Avatar\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"submit\">
@@ -84,6 +84,9 @@
                             </form>
                         </td>
                     </tr>";
+                    echo "<tr>";
+                    include_once "changePassword.php";
+                    echo "</tr>";
                     }
                 ?>
 
