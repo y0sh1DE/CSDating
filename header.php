@@ -42,7 +42,7 @@
                     <a class=\"nav-link disabled\" href=\"mapvoting.php\">Map Voting</a>
                 </li>";
 
-                    
+
                     echo "<li class=\"nav-item\">
                             <a class=\"nav-link disabled\" href=\"\">Logged in as: ".$_SESSION['uName']."</a>
                         </li>

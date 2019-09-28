@@ -44,6 +44,8 @@
                             if(!file_exists($filename))  $filename = "avatars/-1.png";
                             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                             $row = mysqli_fetch_row($result);
+                            $tsImage = "https://userb.tsviewer.com/1_t-i_cn-424242_ct1-848484_ct2-585858_cson-60b404_csof-e00101_cgs-F2F2F2_cge-E4E4E4_cl-585858/";
+                            $tsImage .= $row[2] . ".png";
                             $output = sprintf("
                                 <td>
                                     <img src=\"%s\" alt=\"avatar\" height=\"400\" width=\"400\"/>
@@ -59,7 +61,8 @@
                                 <input type=\"text\" value=\"%s\" name=\"tbxDatingEntries\" id=\"tbxDatingEntries\" class=\"form-control\" disabled>
                                 <hr>
                                 <label for=\"tbxUsername\">Teamspeak Status</label><br><br>
-                                <img width='500' src=\"%s\" alt=\"tsStatus\" onerror=\"this.onerror=null; this.src='img/blank.png'\">", $filename ,$row[0], $row[1], $datingEntries, $row[2]);
+                                <img width='500' src=\"%s\" alt=\"tsStatus\" onerror=\"this.onerror=null; this.src='img/blank.png'\">",
+                                $filename ,$row[0], $row[1], $datingEntries, $tsImage);
                             echo $output;
                             ?>
 
