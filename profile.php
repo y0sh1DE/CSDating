@@ -2,10 +2,10 @@
     require_once "header.php";
     require_once "includes/dbh.inc.php";
 
-    if(!isset($_SESSION['uLoggedIn']) || $_SESSION['uLoggedIn'] !== 1)
+    if(!isset($_SESSION['uLoggedIn']) || $_SESSION['uLoggedIn'] != 1)
     {
       // If the user is not logged in
-      header("Location: index.php?error=notloggedin");
+      header("Location: index.php?error=permission");
       exit();
     }
 
