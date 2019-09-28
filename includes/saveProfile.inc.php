@@ -19,7 +19,7 @@
         $newFileName = sprintf("..\avatars\%s.png", $_SESSION['uID']);
         rename($fileTmpName, $newFileName);
     }
-    else
+    else if($fileSize > 200000)
     {
         redirect("../index.php?error=toobigavatar");
         exit();
