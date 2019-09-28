@@ -79,6 +79,7 @@
                             else
                             {
                                 $tsImage = "https://userb.tsviewer.com/1_t-i_cn-424242_ct1-848484_ct2-585858_cson-60b404_csof-e00101_cgs-F2F2F2_cge-E4E4E4_cl-585858/";
+                                $tsImage .= $row[5] . ".png";
                                 $out = sprintf("<tr>
                                       <td>%s</td>
                                       <td><a href='profile.php?uid=%s'><img src='%s' alt='TS BANNER'></a></td>
