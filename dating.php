@@ -8,7 +8,7 @@
 ?>
 <html>
 <head>
-    <script type="text/javascript" src="http://stevenlevithan.com/assets/misc/date.format.js"></script>
+    <script type="text/javascript" src="includes/date.format.js"></script>
     <script>
         let showingMode = 0;
         window.onload = function()
@@ -162,9 +162,9 @@
                                 <td>%s</td>
                                 <td>%s</td>
                                 <td>%s</td>
-                                <td>%s</td>     
-                                <td>%s</td>                        
-                            </tr>                        
+                                <td>%s</td>
+                                <td>%s</td>
+                            </tr>
                         ", $uName, $row['uID'], $row['dDate'], $row['dTime'], $row['uComment'], $row['d2uSet'], $row['d2uCreated']);
                         echo $output;
                     }

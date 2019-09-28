@@ -2,8 +2,16 @@
     require_once "header.php";
     require_once "includes/dbh.inc.php";
 
+    if(!isset($_SESSION['uLoggedIn']) || $_SESSION['uLoggedIn'] != 1)
+    {
+      // If the user is not logged in
+      header("Location: index.php?error=permission");
+      exit();
+    }
+
     if(!isset($_GET['uid']))
     {
+        // if no profile uID is given
         $url = sprintf("profile.php?uid=%s&error=invaliduid", $_SESSION['uID']);
         header(sprintf("Location: %s", $url));
         exit();
@@ -14,6 +22,7 @@
     $row = mysqli_fetch_row($result);
     if($row[0] == '')
     {
+        // if an invalid profile uID is given
         $url = sprintf("profile.php?uid=%s&error=invaliduid", $_SESSION['uID']);
         header(sprintf("Location: %s", $url));
         exit();
@@ -21,6 +30,8 @@
 ?>
 
 <html>
+    <head>
+    </head>
     <div class="container">
         <table class="table">
             <tbody>
@@ -44,6 +55,8 @@
                             if(!file_exists($filename))  $filename = "avatars/-1.png";
                             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                             $row = mysqli_fetch_row($result);
+                            $tsImage = "https://userb.tsviewer.com/1_t-i_cn-424242_ct1-848484_ct2-585858_cson-60b404_csof-e00101_cgs-F2F2F2_cge-E4E4E4_cl-585858/";
+                            $tsImage .= $row[2] . ".png";
                             $output = sprintf("
                                 <td>
                                     <img src=\"%s\" alt=\"avatar\" height=\"400\" width=\"400\"/>
@@ -59,7 +72,8 @@
                                 <input type=\"text\" value=\"%s\" name=\"tbxDatingEntries\" id=\"tbxDatingEntries\" class=\"form-control\" disabled>
                                 <hr>
                                 <label for=\"tbxUsername\">Teamspeak Status</label><br><br>
-                                <img width='500' src=\"%s\" alt=\"tsStatus\" onerror=\"this.onerror=null; this.src='img/blank.png'\">", $filename ,$row[0], $row[1], $datingEntries, $row[2]);
+                                <img width='500' src=\"%s\" alt=\"tsStatus\" onerror=\"this.onerror=null; this.src='img/blank.png'\">",
+                                $filename ,$row[0], $row[1], $datingEntries, $tsImage);
                             echo $output;
                             ?>
 
@@ -74,16 +88,22 @@
                         <td>
                             <form method=\"post\" action=\"includes/saveProfile.inc.php\" name=\"frmAvatarUpload\" id=\"frmSaveProfile\" enctype=\"multipart/form-data\">
                             <label for=\"imgAvatarUpload\">Avatar</label><br>
-                            <input name=\"imgAvatarUpload\" id=\"imgAvatarUpload\" type=\"file\" accept=\"image/png\" required>
+                            <input name=\"imgAvatarUpload\" id=\"imgAvatarUpload\" type=\"file\" accept=\"image/png\">
                         </td>
-
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for=\"tbxTeamspeakIdentity\">Teamspeak Identity</label><br>
+                        <input class=\"form-control\" name=\"tbxTeamspeakIdentity\" id=\"tbxTeamspeakIdentity\" type=\"text\">
+                      </td>
+                    </tr>
                     <tr>
                         <td>
-                            <input class=\"btn btn-primary\" value=\"Save Avatar\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"submit\">
-                            <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnReset\" id=\"btnReset\" type=\"reset\">
-                            </form>
+                            <input class=\"btn btn-primary\" value=\"Save Profile\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"submit\">
+                            <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnResetAvatar\" id=\"btnResetAvatar\" type=\"reset\">
                         </td>
-                    </tr>";
+                    </tr>
+                    </form>";
                     echo "<tr>";
                         echo "<td>";
                             include_once "changePassword.php";
