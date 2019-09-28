@@ -2,7 +2,7 @@
     require_once "JFuncs.inc.php";
     session_start();
 
-    $tsID = $_GET['tbxTeamspeakIdentity'];
+    $tsID = $_POST['tbxTeamspeakIdentity'];
     if($tsID != "")
     {
       require_once "dbh.inc.php";
