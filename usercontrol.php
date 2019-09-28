@@ -48,7 +48,7 @@
                     <form name="frmUserList" id="frmUserList">
                     <?php
                         require_once "includes/dbh.inc.php";
-                        $sql = "SELECT uID, uName, uLevel, uLastLogin, uRegistered FROM tbluser";
+                        $sql = "SELECT uID, uName, uLevel, uLastLogin, uRegistered, uTSID FROM tbluser";
                         $result = mysqli_query($conn, $sql);
                         while($row = mysqli_fetch_row($result))
                         {
@@ -59,20 +59,41 @@
                             else if($row[2] == 1) $level = "User";
                             else if($row[2] == 2) $level = "Administrator";
                             else if($row[2] == -1) $level = "Declined";
+                            $out = "";
+                            if($row[5] == "")
+                            {
                                 $out = sprintf("<tr>
-                                  <td>%s</td>
-                                  <td><a href='profile.php?uid=%s'>%s</a></td>
-                                  <td>%s</td>
-                                  <td>%s</td>
-                                  <td>
-                                  <!-- ToDo: Hide certain buttons for certain users case depending -->
-                                    <button type='button' name='pro-%s' onclick='return setUserlistAction(this)' class='btn btn-success'>Promote</button>
-                                    <button type='button' name='dem-%s' onclick='return setUserlistAction(this)' class='btn btn-warning'>Demote</button>
-                                    <button type='button' name='spw-%s' onclick='return setUserlistAction(this)' class='btn btn-primary'>Set new Password</button>
-                                    <button type='button' name='del-%s' onclick='return setUserlistAction(this)' class='btn btn-danger'>Delete</button>
-                                    </td>
-                                </tr>", $row[0],$row[0], $row[1], $level, $lastLogin, $row[1] ,$row[1], $row[1], $row[1]);
-                                echo $out;
+                                      <td>%s</td>
+                                      <td><a href='profile.php?uid=%s'>%s</a></td>
+                                      <td>%s</td>
+                                      <td>%s</td>
+                                      <td>
+                                      <!-- ToDo: Hide certain buttons for certain users case depending -->
+                                        <button type='button' name='pro-%s' onclick='return setUserlistAction(this)' class='btn btn-success'>Promote</button>
+                                        <button type='button' name='dem-%s' onclick='return setUserlistAction(this)' class='btn btn-warning'>Demote</button>
+                                        <button type='button' name='spw-%s' onclick='return setUserlistAction(this)' class='btn btn-primary'>Set new Password</button>
+                                        <button type='button' name='del-%s' onclick='return setUserlistAction(this)' class='btn btn-danger'>Delete</button>
+                                        </td>
+                                    </tr>", $row[0],$row[0], $row[1], $level, $lastLogin, $row[1] ,$row[1], $row[1], $row[1]);
+                            }
+                            else
+                            {
+                                $tsImage = "https://userb.tsviewer.com/1_t-i_cn-424242_ct1-848484_ct2-585858_cson-60b404_csof-e00101_cgs-F2F2F2_cge-E4E4E4_cl-585858/";
+                                $out = sprintf("<tr>
+                                      <td>%s</td>
+                                      <td><a href='profile.php?uid=%s'><img src='%s' alt='TS BANNER'></a></td>
+                                      <td>%s</td>
+                                      <td>%s</td>
+                                      <td>
+                                      <!-- ToDo: Hide certain buttons for certain users case depending -->
+                                        <button type='button' name='pro-%s' onclick='return setUserlistAction(this)' class='btn btn-success'>Promote</button>
+                                        <button type='button' name='dem-%s' onclick='return setUserlistAction(this)' class='btn btn-warning'>Demote</button>
+                                        <button type='button' name='spw-%s' onclick='return setUserlistAction(this)' class='btn btn-primary'>Set new Password</button>
+                                        <button type='button' name='del-%s' onclick='return setUserlistAction(this)' class='btn btn-danger'>Delete</button>
+                                        </td>
+                                    </tr>", $row[0],$row[0], $tsImage , $level, $lastLogin, $row[1] ,$row[1], $row[1], $row[1]);
+                            }
+                            echo $out;
                         }
                     ?>
                     </tbody>
