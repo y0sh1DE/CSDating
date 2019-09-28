@@ -31,14 +31,6 @@
 
 <html>
     <head>
-      <script>
-        function deleteAvatar()
-        {
-          document.getElementById("frmSaveProfile").action = "includes/deleteAvatar.inc.php";
-          document.getElementById("frmSaveProfile").submit();
-        }
-      </script>
-
     </head>
     <div class="container">
         <table class="table">
@@ -96,17 +88,23 @@
                         <td>
                             <form method=\"post\" action=\"includes/saveProfile.inc.php\" name=\"frmAvatarUpload\" id=\"frmSaveProfile\" enctype=\"multipart/form-data\">
                             <label for=\"imgAvatarUpload\">Avatar</label><br>
-                            <input name=\"imgAvatarUpload\" id=\"imgAvatarUpload\" type=\"file\" accept=\"image/png\" required>
+                            <input name=\"imgAvatarUpload\" id=\"imgAvatarUpload\" type=\"file\" accept=\"image/png\">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input class=\"btn btn-primary\" value=\"Save Avatar\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"submit\">
-                            <input class=\"btn btn-danger\" value=\"Delete Avatar\" name=\"btnDeleteAvatar\" id=\"btnDeleteAvatar\" type=\"button\" action=\"deleteAvatar()\">
+                            <input class=\"btn btn-primary\" value=\"Save Avatar\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"button\" onclick=\"confirmForm()\">
                             <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnResetAvatar\" id=\"btnResetAvatar\" type=\"reset\">
-                            </form>
+
                         </td>
-                    </tr>";
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for=\"tbxTeamspeakIdentity\">Teamspeak Identity</label><br>
+                        <input name=\"tbxTeamspeakIdentity\" id=\"tbxTeamspeakIdentity\" type=\"text\">
+                      </td>
+                    </tr>
+                    </form>";
                     echo "<tr>";
                         echo "<td>";
                             include_once "changePassword.php";
