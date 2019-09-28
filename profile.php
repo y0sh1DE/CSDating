@@ -30,6 +30,16 @@
 ?>
 
 <html>
+    <head>
+      <script>
+        function deleteAvatar()
+        {
+          document.getElementById("frmSaveProfile").action = "includes/deleteAvatar.inc.php";
+          document.getElementById("frmSaveProfile").submit();
+        }
+      </script>
+
+    </head>
     <div class="container">
         <table class="table">
             <tbody>
@@ -88,11 +98,12 @@
                             <label for=\"imgAvatarUpload\">Avatar</label><br>
                             <input name=\"imgAvatarUpload\" id=\"imgAvatarUpload\" type=\"file\" accept=\"image/png\" required>
                         </td>
-
+                    </tr>
                     <tr>
                         <td>
                             <input class=\"btn btn-primary\" value=\"Save Avatar\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"submit\">
-                            <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnReset\" id=\"btnReset\" type=\"reset\">
+                            <input class=\"btn btn-danger\" value=\"Delete Avatar\" name=\"btnDeleteAvatar\" id=\"btnDeleteAvatar\" type=\"button\" action=\"javascript: deleteAvatar();\">
+                            <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnResetAvatar\" id=\"btnResetAvatar\" type=\"reset\">
                             </form>
                         </td>
                     </tr>";
