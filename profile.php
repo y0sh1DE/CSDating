@@ -92,17 +92,17 @@
                         </td>
                     </tr>
                     <tr>
+                      <td>
+                        <label for=\"tbxTeamspeakIdentity\">Teamspeak Identity</label><br>
+                        <input class=\"form-control\" name=\"tbxTeamspeakIdentity\" id=\"tbxTeamspeakIdentity\" type=\"text\">
+                      </td>
+                    </tr>
+                    <tr>
                         <td>
-                            <input class=\"btn btn-primary\" value=\"Save Avatar\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"button\" onclick=\"confirmForm()\">
+                            <input class=\"btn btn-primary\" value=\"Save Profile\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"button\" onclick=\"confirmForm()\">
                             <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnResetAvatar\" id=\"btnResetAvatar\" type=\"reset\">
 
                         </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label for=\"tbxTeamspeakIdentity\">Teamspeak Identity</label><br>
-                        <input name=\"tbxTeamspeakIdentity\" id=\"tbxTeamspeakIdentity\" type=\"text\">
-                      </td>
                     </tr>
                     </form>";
                     echo "<tr>";
