@@ -2,8 +2,16 @@
     require_once "header.php";
     require_once "includes/dbh.inc.php";
 
+    if(!isset($_SESSION['uLoggedIn']) || $_SESSION['uLoggedIn'] !== 1)
+    {
+      // If the user is not logged in
+      header("Location: index.php?error=notloggedin");
+      exit();
+    }
+
     if(!isset($_GET['uid']))
     {
+        // if no profile uID is given
         $url = sprintf("profile.php?uid=%s&error=invaliduid", $_SESSION['uID']);
         header(sprintf("Location: %s", $url));
         exit();
@@ -14,6 +22,7 @@
     $row = mysqli_fetch_row($result);
     if($row[0] == '')
     {
+        // if an invalid profile uID is given
         $url = sprintf("profile.php?uid=%s&error=invaliduid", $_SESSION['uID']);
         header(sprintf("Location: %s", $url));
         exit();
