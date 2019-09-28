@@ -12,7 +12,11 @@ if(isset($_GET['tbxPromote']))
     $sql = sprintf("DELETE FROM tbluser WHERE uName = '%s'", $uName);
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-    $sql = sprintf("DELETE FROM tbldate2user WHERE uID = (SELECT uID FROM tbluser WHERE uName = '%s')", $uName);
+    $sql = sprintf("SELECT uID FROM tbluser WHERE uName = '%s'", $uName);
+    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    $row = mysqli_fetch_row($result);
+
+    $sql = sprintf("DELETE FROM tbldate2user WHERE uID = '%s'", $row[0]);
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
     header("Location: ../usercontrol.php?success=deletedUser&username=".$_GET['tbxPromote']);
