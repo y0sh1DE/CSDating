@@ -99,7 +99,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input class=\"btn btn-primary\" value=\"Save Profile\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"button\">
+                            <input class=\"btn btn-primary\" value=\"Save Profile\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"submit\">
                             <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnResetAvatar\" id=\"btnResetAvatar\" type=\"reset\">
                         </td>
                     </tr>
