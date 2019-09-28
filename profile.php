@@ -102,7 +102,7 @@
                     <tr>
                         <td>
                             <input class=\"btn btn-primary\" value=\"Save Avatar\" name=\"btnSaveProfile\" id=\"btnSaveProfile\" type=\"submit\">
-                            <input class=\"btn btn-danger\" value=\"Delete Avatar\" name=\"btnDeleteAvatar\" id=\"btnDeleteAvatar\" type=\"button\" action=\"javascript: deleteAvatar();\">
+                            <input class=\"btn btn-danger\" value=\"Delete Avatar\" name=\"btnDeleteAvatar\" id=\"btnDeleteAvatar\" type=\"button\" action=\"deleteAvatar()\">
                             <input class=\"btn btn-secondary\" value=\"Reset\" name=\"btnResetAvatar\" id=\"btnResetAvatar\" type=\"reset\">
                             </form>
                         </td>
