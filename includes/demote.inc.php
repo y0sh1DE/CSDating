@@ -21,7 +21,8 @@ if(isset($_GET['tbxPromote']))
             header("Location: ../usercontrol.php?error=userlowestlevel");
             exit();
         }
-        $newlevel = $oldlevel - 1;
+        if($oldlevel == 1) $newlevel = $oldlevel - 2;
+        else $newlevel = $oldlevel - 1;
         $sql = sprintf("UPDATE tbluser SET uLevel=%s,uLoggedIn = 0 WHERE uName = '%s'", $newlevel, $uName);
         $result = mysqli_query($conn, $sql);
     }
