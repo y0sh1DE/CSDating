@@ -33,7 +33,8 @@
     <head>
     </head>
     <div class="container">
-        <table class="table">
+	<input type="text" name="tbxSearchUser" id="tbxSearchUser" placeholder="Search for Username / uID..."><br> 
+ 	<table class="table">
             <tbody>
                 <tr>
 
