@@ -35,7 +35,7 @@
     <div class="container">
       <form name="frmSearchUser" id="frmSearchUser" method="post" action="includes/searchUser.inc.php">
         <input type="text" class="form-control"  name="tbxSearchUser" id="tbxSearchUser" placeholder="Search for Username / uID...">
-        <button type="submit" name="btnSearchUser" id="btnSearchUser" class="btn btn-primary" value="Search User"/><br>
+        <button type="submit" name="btnSearchUser" id="btnSearchUser" class="btn btn-primary">Search User</button><br>
       </form>
   <table class="table">
             <tbody>

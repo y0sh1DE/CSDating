@@ -11,8 +11,12 @@
     $sql = sprintf("SELECT uID FROM tbluser WHERE uName = '%s'", $input);
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     $row = mysqli_fetch_row($result);
-    $url = sprintf("profile.php?uid=%s", $row[0]);
-    header("Location: ../" . $url);
+    if($row[0] != "")
+    {
+      $url = sprintf("profile.php?uid=%s", $row[0]);
+      header("Location: ../" . $url);
+    }
+    else header("Location: ../profile.php?error=invaliduid");
     exit();
   }
 ?>
