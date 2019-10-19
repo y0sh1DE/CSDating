@@ -2,7 +2,7 @@
   $input = $_POST["tbxSearchUser"];
   if(is_numeric($input))
   {
-    header("Location: ../profile.php?uid=" + $input);
+    header("Location: ../profile.php?uid=" . $input);
     exit();
   }
   else
@@ -12,7 +12,7 @@
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     $row = mysqli_fetch_row($result);
     $url = sprintf("profile.php?uid=%s", $row[0]);
-    header("Location: ../" + $url);
+    header("Location: ../" . $url);
     exit();
   }
 ?>
