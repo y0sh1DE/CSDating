@@ -25,7 +25,7 @@
                             $out = sprintf("
                             <tr>
                                 <td>
-                                    <a href="profile.php?uid=%s>%s</a>
+                                    <a href='profile.php?uid=%s'>%s</a>
                                 </td>
                                 <td>
                                     %s
