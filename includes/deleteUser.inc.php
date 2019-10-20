@@ -20,6 +20,8 @@ if(isset($_GET['tbxPromote']))
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 
+	$newFileName = sprintf("..\avatars\%s.png", $_SESSION['uID']);
+    if(file_exists($newFileName)) unlink($newFileName);
 
     header("Location: ../usercontrol.php?success=deletedUser&username=".$_GET['tbxPromote']);
     exit();

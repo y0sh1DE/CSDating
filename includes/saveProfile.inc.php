@@ -17,6 +17,7 @@
     if($fileSize <= 200000)
     {
         $newFileName = sprintf("..\avatars\%s.png", $_SESSION['uID']);
+        if(file_exists($newFileName)) unlink($newFileName);
         rename($fileTmpName, $newFileName);
     }
     else if($fileSize > 200000)

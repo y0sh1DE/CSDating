@@ -3,7 +3,6 @@
   if(is_numeric($input))
   {
     header("Location: ../profile.php?uid=" . $input);
-    exit();
   }
   else
   {
@@ -17,6 +16,5 @@
       header("Location: ../" . $url);
     }
     else header("Location: ../profile.php?error=invaliduid");
-    exit();
   }
-?>
+  exit();
