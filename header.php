@@ -26,7 +26,7 @@
                 <a href="index.php"><img style="float:left" height="64" width="64" src="img/Logo.png" alt="Logo"></a>
 
             <?php
-                if(isset($_SESSION['uLoggedIn']) && isset($_SESSION['uChangePassword']))
+                if(isset($_SESSION['uLoggedIn']) && !isset($_SESSION['uChangePassword']))
                 {
                     // If user is logged in
                     echo "<li class=\"nav-item\">
