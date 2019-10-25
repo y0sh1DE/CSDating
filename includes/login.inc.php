@@ -18,7 +18,12 @@ if(isset($_POST['btnLogin']))
         if($pwdCheck == true)
         {
             // Correct Password
-            if($row['uChangePassword'] == 1)
+            if($row['uLevel'] == 0 || $row['uLevel'] == -1)
+            {
+                header("Location: ../index.php?error=notaccepted");
+                exit();
+            }
+            else if($row['uChangePassword'] == 1)
             {
                 // user has to change password
                 session_set_cookie_params($GLOBALS['SESSION_LIFETIME']);
@@ -35,11 +40,6 @@ if(isset($_POST['btnLogin']))
                 $result = mysqli_query($conn, $sql);
 
                 redirect("../changePassword.php?username=".$username);
-                exit();
-            }
-            else if($row['uLevel'] == 0 || $row['uLevel'] == -1)
-            {
-                header("Location: ../index.php?error=notaccepted");
                 exit();
             }
             else
