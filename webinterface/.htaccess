@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Conies Homies Webinterface"
+AuthUserFile "/var/www/html/CHWebinterface/.htpasswort"
+Require valid-user
