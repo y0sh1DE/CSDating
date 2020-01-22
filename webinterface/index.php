@@ -1,8 +1,8 @@
+<html>
+<head>
 <?php
 	require_once "header.php";
 ?>
-<html>
-  <head>
     <meta charset="utf-8"/>
     <title> Conies Homies Webinterface </title>
   </head>
