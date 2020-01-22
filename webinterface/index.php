@@ -31,13 +31,13 @@
 		}
 	?>
     <form action="scripts/script.startTW.php" name="frmStartTW" method="post">
-      <button type="submit" name="btnStartTW">Starte Teeworlds Server</button>
+      <button class="btn btn-primary" type="submit" name="btnStartTW">Starte Teeworlds Server</button>
     </form>
     <form action="scripts/script.startMC.php" name="frmStartMC" method="post">
-	<button type="submit" name"btnStartMC">Starte Minecraft Server</button>
+	<button class="btn btn-primary" type="submit" name"btnStartMC">Starte Minecraft Server</button>
     </form>
     <form action="scripts/script.rebootVM.php" name="frmRestartVM" method="post">
-	<button type="submit" name="rebootVM">Reboote die komplette VM</button>
+	<button class="btn btn-primary" type="submit" name="rebootVM">Reboote die komplette VM</button>
     </form>
   </body>
 </html>
